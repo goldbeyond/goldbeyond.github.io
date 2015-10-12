@@ -63,7 +63,7 @@
 
 移除文件 git rm \
 重命名一个文件git">
-<meta property="og:updated_time" content="2015-10-12T12:21:34.000Z">
+<meta property="og:updated_time" content="2015-10-12T12:59:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git常用操作">
 <meta name="twitter:description" content="Git常用操作基本操作
@@ -264,7 +264,38 @@
 <li>更新远端仓库的分支和数据<br>git fetch \<name\> </name\></li>
 <li>获取并合并远端仓库的分支到当前分支<br>  git pull \<reponame\> \<branchname\><br> eg: <code>git pull origin master</code></branchname\></reponame\></li>
 <li>上传本地分支和数据到远端仓库<br> git push \<reponame\> \<branchname\><br> eg: <code>git push origin master</code> </branchname\></reponame\></li>
-<li>跟踪远端仓库上的分支<br>  git checkout –track origin/testbranch<br>  git checkout -b test origin/testbranch</li>
+<li>跟踪远端仓库上的分支<br>  git checkout –track origin/testbranch<br>  git checkout -b test origin/testbranch<h1 id="git_merge_(冲突版)">git merge (冲突版)</h1></li>
+</ol>
+<p>===</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">mkdir mergeDemo</span><br><span class="line">cd mergeDemo</span><br><span class="line">git init</span><br><span class="line">echo <span class="string">"1.c"</span> &gt; <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git add <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git ci -m <span class="string">"1.c by master"</span></span><br><span class="line"></span><br><span class="line">git co -<span class="tag">b</span> test</span><br><span class="line">echo <span class="string">"test"</span> &gt;&gt; <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git add <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git ci -m <span class="string">"1.c modified by test"</span></span><br><span class="line"></span><br><span class="line">git co master</span><br><span class="line">echo <span class="string">"master"</span> &gt;&gt; <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git add <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git ci -m <span class="string">"1.c modified by master"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git merge test</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>以上命令执行完之后，会遇到冲突。首先，通过vim打开冲突的文件，在这里是1.c，修改完冲突之后，wq保存退出;<br>接着，运行如下命令，完成后续操作</p>
+</blockquote>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add 1.c</span><br><span class="line">git <span class="keyword">ci</span> -<span class="keyword">m</span> <span class="string">"fixed conflict"</span></span><br></pre></td></tr></table></figure>
+<h1 id="git_rebase_(冲突版)">git rebase (冲突版)</h1><p>===</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mkdir rebaseDemo</span><br><span class="line">cd rebaseDemo</span><br><span class="line">git init</span><br><span class="line">echo <span class="string">"1.c"</span> &gt; <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git add <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git ci -m <span class="string">"1.c by master"</span></span><br><span class="line"></span><br><span class="line">git co -<span class="tag">b</span> test</span><br><span class="line">echo <span class="string">"test"</span> &gt;&gt; <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git add <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git ci -m <span class="string">"1.c modified by test"</span></span><br><span class="line"></span><br><span class="line">git co master</span><br><span class="line">echo <span class="string">"master"</span> &gt;&gt; <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git add <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git ci -m <span class="string">"1.c modified by master"</span></span><br><span class="line"></span><br><span class="line">git rebase master test</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>以上命令执行完之后，会遇到冲突。首先，通过vim打开冲突的文件，在这里是1.c，修改完冲突之后，wq保存退出;<br>接着，运行如下命令，完成后续操作</p>
+</blockquote>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">add</span> <span class="number">1.</span>c</span><br><span class="line">git rebase <span class="comment">--continue</span></span><br><span class="line">git co master</span><br><span class="line">git <span class="built_in">merge</span> test</span><br></pre></td></tr></table></figure>
+<h1 id="#git_rebase_-i">#git rebase -i</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">mkdir rebase-i-demo</span><br><span class="line">cd rebase-i-demo</span><br><span class="line">git init</span><br><span class="line">echo <span class="string">"1.c"</span> &gt; <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git add <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git ci -m <span class="string">"1.c by master"</span></span><br><span class="line"></span><br><span class="line">git co -<span class="tag">b</span> test</span><br><span class="line"></span><br><span class="line">echo <span class="string">"111"</span> &gt;&gt; <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git add <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git ci -m <span class="string">"test 修改了 1.c 111"</span></span><br><span class="line">echo <span class="string">"2x2"</span> &gt;&gt; <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git add <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git ci -m <span class="string">"test 修改了 1.c 222"</span></span><br><span class="line">echo <span class="string">"333"</span> &gt;&gt; <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git add <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git ci -m <span class="string">"test 修改了 1.c 333"</span></span><br><span class="line">echo <span class="string">"444"</span> &gt;&gt; <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git add <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git ci -m <span class="string">"test 修改了 1.c 444"</span></span><br><span class="line">echo <span class="string">"555"</span> &gt;&gt; <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git add <span class="number">1</span><span class="class">.c</span></span><br><span class="line">git ci -m <span class="string">"test 修改了 1.c 5xx"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>执行完以上命令之后，我们模拟出了这样一个场景：在test分支上对1.c文件修改了5次。</p>
+<p>第二次修改有误，本想修改为222，却误将其修改为了2x2，因此，对第二次修改需要更正（edit）；</p>
+<p>第三次修改和第四次修改希望想融合为一次提交log，但是内容都保留，因此，对第四次修改需要融合（squash）；</p>
+<p>第五次修改的提交log有误，本想提交为”test 修改了 1.c 555”，却误输入为”test 修改了 1.c 5xx”，因此，对第五次修改需要更新log(reword)</p>
+</blockquote>
+<p>基于以上分析，假设这五次提交的commit号分别为 <code>1abcdef</code> <code>2abcdef</code> <code>3abcdef</code> <code>4abcdef</code> <code>5abcdef</code>，那需要进行如下操作</p>
+<ol>
+<li>执行命令 <code>git rebase -i master test</code></li>
+<li><p>编辑以上命令执行完之后的文件为如下内容</p>
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p <span class="number">1</span>abcdef</span><br><span class="line">e <span class="number">2</span>abcdef</span><br><span class="line">p <span class="number">3</span>abcdef</span><br><span class="line">s <span class="number">4</span>abcdef</span><br><span class="line">r <span class="number">5</span>abcdef</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑完之后，wq保存退出，后续步骤根据 <code>git status</code>的提醒，类似git rebase的操作继续操作即可</p>
+</li>
+<li><p>在<code>git rebase -i master test</code>命令的后续操作都完成之后，在执行如下两条命令即可</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git co master</span><br><span class="line">git <span class="operator"><span class="keyword">merge</span> <span class="keyword">test</span></span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 </span>
       
@@ -276,6 +307,8 @@
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/12/merge/" rel="prev">merge</a>
             
           </div>
 
@@ -343,7 +376,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -392,7 +425,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git常用操作"><span class="nav-number">1.</span> <span class="nav-text">Git常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">1.1.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销操作"><span class="nav-number">1.2.</span> <span class="nav-text">撤销操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tag操作"><span class="nav-number">1.3.</span> <span class="nav-text">Tag操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支操作"><span class="nav-number">1.4.</span> <span class="nav-text">分支操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远端仓库操作"><span class="nav-number">1.5.</span> <span class="nav-text">远端仓库操作</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git常用操作"><span class="nav-number">1.</span> <span class="nav-text">Git常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">1.1.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销操作"><span class="nav-number">1.2.</span> <span class="nav-text">撤销操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tag操作"><span class="nav-number">1.3.</span> <span class="nav-text">Tag操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支操作"><span class="nav-number">1.4.</span> <span class="nav-text">分支操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远端仓库操作"><span class="nav-number">1.5.</span> <span class="nav-text">远端仓库操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git_merge_(冲突版)"><span class="nav-number">2.</span> <span class="nav-text">git merge (冲突版)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git_rebase_(冲突版)"><span class="nav-number">3.</span> <span class="nav-text">git rebase (冲突版)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="##git_rebase_-i"><span class="nav-number">4.</span> <span class="nav-text">#git rebase -i</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
