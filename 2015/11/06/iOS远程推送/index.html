@@ -39,16 +39,27 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="一般Xcode在UTF16的编码下才能正确显示中文，因此我们需要在展示文件之前将文件的编码改为UTF16首先需要针对ANSI编码和Unicode编码分别进行解码详细代码如下1234567891011121314151617181920NSString *filePath = [[NSBundle mainBundle] pathForResource:@&quot;《东宫》 匪我思存 全+番外&quot; ofTyp">
+<meta name="description" content="iOS远程推送苹果推送机制(APNS)苹果官方对其推送做出解释的概要图
+Provider是给你手机应用发出推送消息的服务器，而APNS（Apple Push Notification Service）则是苹果消息推送服务器。你本地的服务器当需要给应用推送一条消息的时候，先要将消息发出到苹果推送服务器，然后再由苹果推送服务器将消息发到安装了该应用的手机
+
+根据上图的逻辑解释一下：1.你的IOS应用需">
 <meta property="og:type" content="article">
-<meta property="og:title" content="txt文件转码问题">
-<meta property="og:url" content="http://yoursite.com/2015/10/27/txt文件转码问题/index.html">
+<meta property="og:title" content="iOS远程推送">
+<meta property="og:url" content="http://yoursite.com/2015/11/06/iOS远程推送/index.html">
 <meta property="og:site_name" content="goldbeyond Node">
-<meta property="og:description" content="一般Xcode在UTF16的编码下才能正确显示中文，因此我们需要在展示文件之前将文件的编码改为UTF16首先需要针对ANSI编码和Unicode编码分别进行解码详细代码如下1234567891011121314151617181920NSString *filePath = [[NSBundle mainBundle] pathForResource:@&quot;《东宫》 匪我思存 全+番外&quot; ofTyp">
-<meta property="og:updated_time" content="2015-10-27T07:30:20.000Z">
+<meta property="og:description" content="iOS远程推送苹果推送机制(APNS)苹果官方对其推送做出解释的概要图
+Provider是给你手机应用发出推送消息的服务器，而APNS（Apple Push Notification Service）则是苹果消息推送服务器。你本地的服务器当需要给应用推送一条消息的时候，先要将消息发出到苹果推送服务器，然后再由苹果推送服务器将消息发到安装了该应用的手机
+
+根据上图的逻辑解释一下：1.你的IOS应用需">
+<meta property="og:image" content="https://github.com/goldbeyond/GitHubManager/blob/master/notification.png?raw=true">
+<meta property="og:image" content="https://github.com/goldbeyond/GitHubManager/blob/master/notification2.png?raw=true">
+<meta property="og:updated_time" content="2015-11-06T08:27:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="txt文件转码问题">
-<meta name="twitter:description" content="一般Xcode在UTF16的编码下才能正确显示中文，因此我们需要在展示文件之前将文件的编码改为UTF16首先需要针对ANSI编码和Unicode编码分别进行解码详细代码如下1234567891011121314151617181920NSString *filePath = [[NSBundle mainBundle] pathForResource:@&quot;《东宫》 匪我思存 全+番外&quot; ofTyp">
+<meta name="twitter:title" content="iOS远程推送">
+<meta name="twitter:description" content="iOS远程推送苹果推送机制(APNS)苹果官方对其推送做出解释的概要图
+Provider是给你手机应用发出推送消息的服务器，而APNS（Apple Push Notification Service）则是苹果消息推送服务器。你本地的服务器当需要给应用推送一条消息的时候，先要将消息发出到苹果推送服务器，然后再由苹果推送服务器将消息发到安装了该应用的手机
+
+根据上图的逻辑解释一下：1.你的IOS应用需">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -58,7 +69,7 @@
   };
 </script>
 
-  <title> txt文件转码问题 | goldbeyond Node </title>
+  <title> iOS远程推送 | goldbeyond Node </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -186,7 +197,7 @@
           
           
             
-              txt文件转码问题
+              iOS远程推送
             
           
         </h1>
@@ -195,8 +206,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-10-27T11:40:20+08:00" content="2015-10-27">
-            2015-10-27
+          <time itemprop="dateCreated" datetime="2015-11-06T16:26:53+08:00" content="2015-11-06">
+            2015-11-06
           </time>
         </span>
 
@@ -214,7 +225,15 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="一般Xcode在UTF16的编码下才能正确显示中文，因此我们需要在展示文件之前将文件的编码改为UTF16">一般Xcode在UTF16的编码下才能正确显示中文，因此我们需要在展示文件之前将文件的编码改为UTF16</h3><h3 id="首先需要针对ANSI编码和Unicode编码分别进行解码">首先需要针对ANSI编码和Unicode编码分别进行解码</h3><h3 id="详细代码如下">详细代码如下</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"《东宫》 匪我思存 全+番外"</span> ofType:<span class="string">@"txt"</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfFile:filePath];</span><br><span class="line"></span><br><span class="line"><span class="comment">//UINICODE编码</span></span><br><span class="line"><span class="built_in">NSString</span> *isUNICODE = [[<span class="built_in">NSString</span> alloc] initWithData:data encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//ANSI编码</span></span><br><span class="line"><span class="built_in">NSString</span> *isA<span class="built_in">NSI</span> = [[<span class="built_in">NSString</span> alloc] initWithData:data encoding:-<span class="number">2147482062</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (isUNICODE) &#123;</span><br><span class="line">    <span class="built_in">NSString</span> *retStr = [[<span class="built_in">NSString</span> alloc] initWithCString:[isUNICODE UTF8String] encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">    <span class="built_in">NSData</span> *UTF16Data = [retStr dataUsingEncoding:<span class="built_in">NSUTF16StringEncoding</span>];</span><br><span class="line">    <span class="built_in">NSString</span> *C<span class="built_in">NStr</span> = [[<span class="built_in">NSString</span> alloc] initWithData:UTF16Data encoding:<span class="built_in">NSUTF16StringEncoding</span>];</span><br><span class="line">    </span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(isA<span class="built_in">NSI</span>)&#123;</span><br><span class="line">    <span class="built_in">NSData</span> *ANData = [isA<span class="built_in">NSI</span> dataUsingEncoding:<span class="built_in">NSUTF16StringEncoding</span>];</span><br><span class="line">    <span class="built_in">NSString</span> *C<span class="built_in">NStr</span> = [[<span class="built_in">NSString</span> alloc] initWithData:ANData encoding:<span class="built_in">NSUTF16StringEncoding</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <span itemprop="articleBody"><h2 id="iOS远程推送">iOS远程推送</h2><h3 id="苹果推送机制(APNS)">苹果推送机制(APNS)</h3><h3 id="苹果官方对其推送做出解释的概要图">苹果官方对其推送做出解释的概要图</h3><p><img src="https://github.com/goldbeyond/GitHubManager/blob/master/notification.png?raw=true" alt="Mou icon"></p>
+<p>Provider是给你手机应用发出推送消息的服务器，而APNS（Apple Push Notification Service）则是苹果消息推送服务器。你本地的服务器当需要给应用推送一条消息的时候，先要将消息发出到苹果推送服务器，然后再由苹果推送服务器将消息发到安装了该应用的手机</p>
+<p><img src="https://github.com/goldbeyond/GitHubManager/blob/master/notification2.png?raw=true" alt="Mou icon1"></p>
+<h3 id="根据上图的逻辑解释一下：">根据上图的逻辑解释一下：</h3><pre><code><span class="number">1.</span>你的IOS应用需要去注册APNS消息推送功能。
+<span class="number">2.</span>当苹果APNS推送服收到来自你应用的注册消息就会返回一串device token给你（很重要）
+<span class="number">3.</span>将应用收到的device Token传给你本地的Push服务器。
+<span class="number">4.</span>当你需要为应用推送消息的时候，你本地的推送服务器会将消息，以及Device Token打包发送到苹果的APNS服
+<span class="number">5.</span>APNS再将消息推送给目的iphone
+</code></pre><h3 id="注册消息推送">注册消息推送</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> sysVer = [[[<span class="built_in">UIDevice</span> currentDevice] systemVersion] floatValue];</span><br><span class="line">    <span class="keyword">if</span>(sysVer &lt; <span class="number">8</span>)&#123;</span><br><span class="line">        [[<span class="built_in">UIApplication</span> sharedApplication] registerForRemoteNotificationTypes:(<span class="built_in">UIRemoteNotificationTypeAlert</span> | <span class="built_in">UIRemoteNotificationTypeBadge</span> | <span class="built_in">UIRemoteNotificationTypeSound</span>)];</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="preprocessor">#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt;= _IPHONE80_</span></span><br><span class="line">        <span class="built_in">UIMutableUserNotificationCategory</span> *categorys = [[<span class="built_in">UIMutableUserNotificationCategory</span> alloc] init];</span><br><span class="line">        <span class="built_in">UIUserNotificationSettings</span> *userSettings = [<span class="built_in">UIUserNotificationSettings</span> settingsForTypes:<span class="built_in">UIUserNotificationTypeBadge</span>|<span class="built_in">UIUserNotificationTypeSound</span>|<span class="built_in">UIUserNotificationTypeAlert</span></span><br><span class="line">                                                                                     categories:[<span class="built_in">NSSet</span> setWithObject:categorys]];</span><br><span class="line">        [[<span class="built_in">UIApplication</span> sharedApplication] registerUserNotificationSettings:userSettings];</span><br><span class="line">        [[<span class="built_in">UIApplication</span> sharedApplication] registerForRemoteNotifications];</span><br><span class="line"><span class="preprocessor">#endif</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -226,13 +245,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/11/05/解决wireshark找不到本地网卡问题/" rel="prev">解决wireshark找不到本地网卡问题</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/22/cocoapods安装和使用/" rel="next">cocoapods安装和使用</a>
+              <a href="/2015/11/05/解决wireshark找不到本地网卡问题/" rel="next">解决wireshark找不到本地网卡问题</a>
             
           </div>
         </div>
@@ -343,7 +360,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一般Xcode在UTF16的编码下才能正确显示中文，因此我们需要在展示文件之前将文件的编码改为UTF16"><span class="nav-number">1.</span> <span class="nav-text">一般Xcode在UTF16的编码下才能正确显示中文，因此我们需要在展示文件之前将文件的编码改为UTF16</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首先需要针对ANSI编码和Unicode编码分别进行解码"><span class="nav-number">2.</span> <span class="nav-text">首先需要针对ANSI编码和Unicode编码分别进行解码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详细代码如下"><span class="nav-number">3.</span> <span class="nav-text">详细代码如下</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS远程推送"><span class="nav-number">1.</span> <span class="nav-text">iOS远程推送</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#苹果推送机制(APNS)"><span class="nav-number">1.1.</span> <span class="nav-text">苹果推送机制(APNS)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#苹果官方对其推送做出解释的概要图"><span class="nav-number">1.2.</span> <span class="nav-text">苹果官方对其推送做出解释的概要图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据上图的逻辑解释一下："><span class="nav-number">1.3.</span> <span class="nav-text">根据上图的逻辑解释一下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册消息推送"><span class="nav-number">1.4.</span> <span class="nav-text">注册消息推送</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
