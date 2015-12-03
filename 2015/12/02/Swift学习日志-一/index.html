@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=44218032" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7192fa361f5cabb11d8a22de41c1ba8f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>Swift学习日志(一) | 明明的博客</title>
+  <meta name="author" content="明明">
+  
+  <meta name="description" content="河南理工大学，计算机科学与技术专业。擅长运动，热爱编程......">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Swift学习日志(一)"/>
+  <meta property="og:site_name" content="明明的博客"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="明明的博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="明明的博客" title="明明的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">明明的博客</h1>
+				<h2 class="blog-motto">吾日三省吾身</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	Swift学习日志(一)
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://www.goldbeyond.top" title="明明">明明</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-12-02T14:46:29.000Z" itemprop="datePublished">2015-12-02</time>
+    更新日期:<time datetime="2015-12-03T02:14:34.000Z" itemprop="dateModified">2015-12-03</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+        <p>废话不多说，直接进入Swift的学习</p>
+<h2 id="简单值">简单值</h2><h3 id="let_&amp;_var">let &amp; var</h3><h4 id="let用来声明常量（在OC中代表了，不可变的意思）,var用来声明变量（在OC中代表了，可变的意思），一个常量只能被赋值一次，可以多次使用,如果定义了一次，被修改，会报错，系统会建议你改成变量var类型，再进行修改">let用来声明常量（在OC中代表了，不可变的意思）,var用来声明变量（在OC中代表了，可变的意思），一个常量只能被赋值一次，可以多次使用,如果定义了一次，被修改，会报错，系统会建议你改成变量var类型，再进行修改</h4><a id="more"></a>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">str</span>:<span class="built_in">String</span> = <span class="string">"Hello, playground"</span></span><br><span class="line"><span class="keyword">str</span> = <span class="string">"你好，中国"</span></span><br><span class="line"><span class="keyword">let</span> name:<span class="built_in">String</span> = <span class="string">"hello"</span> <span class="comment">//被定义为常量，即不可修改</span></span><br></pre></td></tr></table></figure>
+<h4 id="给一个变量或者常量定义类型，就在常量或者变量的后面加_:类型">给一个变量或者常量定义类型，就在常量或者变量的后面加 :类型</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str:<span class="built_in">String</span> = <span class="string">"Hello, playground"</span></span><br></pre></td></tr></table></figure>
+<h4 id="在声明变量（var）or_常量(let)时我们不用明确的给定其类型，在我们赋值的同时，编辑器会自动推断其类型">在声明变量（var）or 常量(let)时我们不用明确的给定其类型，在我们赋值的同时，编辑器会自动推断其类型</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> age</span> = <span class="number">15</span>  <span class="comment">//被认定为整形,age将永久的背认为是整形变量</span></span><br><span class="line"><span class="variable"><span class="keyword">var</span> sex</span> = <span class="string">"男"</span> <span class="comment">//被认定为字符串类型</span></span><br></pre></td></tr></table></figure>
+<h3 id="显式转换数据类型">显式转换数据类型</h3><h4 id="值不会被隐式转换为其他类型，这点跟OC有区别，在这里想要把一个值转换成其他值，就必须显式转换，即指定强转类型">值不会被隐式转换为其他类型，这点跟OC有区别，在这里想要把一个值转换成其他值，就必须显式转换，即指定强转类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myName = <span class="string">"my name is goldbeyond"</span></span><br><span class="line"><span class="keyword">let</span> height = <span class="number">180.0</span></span><br><span class="line"><span class="keyword">let</span> myNameAndHeight = myName + <span class="string">"身高是:"</span> + <span class="built_in">String</span>(height)</span><br><span class="line"></span><br><span class="line"><span class="comment">//在这里 + 号代表追加，这也是Swift强大的地方，减少了我们对于字符串的各种操作，一个加号能够节省几行代码！</span></span><br></pre></td></tr></table></figure>
+<h4 id="还有一种简单的把值转换成字符串的方法：把值写到括号中，并且在括号之前加一个反斜杠。">还有一种简单的把值转换成字符串的方法：把值写到括号中，并且在括号之前加一个反斜杠。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> age1 = <span class="number">12</span></span><br><span class="line"><span class="keyword">let</span> age2 = <span class="number">23</span></span><br><span class="line"><span class="keyword">let</span> person1 = <span class="string">"wang's age is \(age1)"</span></span><br><span class="line"><span class="keyword">let</span> person2 = <span class="string">"li's age is \(age2)"</span></span><br><span class="line">等价于</span><br><span class="line"><span class="keyword">let</span> person3 = <span class="string">"wang's age is "</span> + <span class="built_in">String</span>(age1)</span><br><span class="line"><span class="keyword">let</span> person4 = <span class="string">"li's age is "</span> + <span class="built_in">String</span>(age2)</span><br></pre></td></tr></table></figure>
+<h3 id="数组_&amp;_字典的创建">数组 &amp; 字典的创建</h3><h4 id="数组和字典的创建，都是通过方括号[]，访问元素时用下标或者键">数组和字典的创建，都是通过方括号[]，访问元素时用下标或者键</h4><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="atom">var</span> <span class="atom">array</span> = [<span class="string">"中国"</span>,<span class="string">"美国"</span>,<span class="string">"俄罗斯"</span>]</span><br><span class="line"><span class="atom">array</span>[<span class="number">0</span>] = <span class="string">"河南"</span>//在这里是将数组的下表为<span class="number">0</span>的元素进行替换，结果为：[<span class="string">"河南"</span>, <span class="string">"美国"</span>, <span class="string">"俄罗斯"</span>]</span><br><span class="line"></span><br><span class="line"><span class="atom">var</span> <span class="atom">dictionary</span> = [<span class="string">"name"</span>:<span class="string">"张三"</span>,<span class="string">"age"</span>:<span class="number">15</span>,<span class="string">"sex"</span>:<span class="string">"男"</span>]</span><br><span class="line"><span class="atom">dictionary</span>[<span class="string">"phone"</span>] = <span class="string">"123456"</span>//代表插入一个键为<span class="atom">phone</span>的键值对</span><br></pre></td></tr></table></figure>
+<h4 id="要创建一个空数组或者字典，使用初始化语法">要创建一个空数组或者字典，使用初始化语法</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var nilArr = [<span class="link_label">String</span>](<span class="link_url"></span>)</span><br><span class="line">var nilDict = [<span class="link_label">String:Int</span>](<span class="link_url"></span>)</span><br></pre></td></tr></table></figure>
+<h4 id="还有一种创建空数组或者空字典的方式，就是在数据类型可以被推断出来的情况下">还有一种创建空数组或者空字典的方式，就是在数据类型可以被推断出来的情况下</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> arr</span> = []</span><br><span class="line"><span class="variable"><span class="keyword">var</span> dict</span> = [:]</span><br><span class="line"><span class="comment">//遗留问题：不太清楚怎么使用</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+    <footer>
+        
+        
+  
+  <div class="tags">
+    <a href="//tags/Swift/">Swift</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    
+    <a href="/2015/11/29/时间家族浅析/" class="alignright next" title="时间家族浅析">时间家族浅析</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2015/12/02/Swift学习日志-一/" data-title="Swift学习日志(一)" data-url="http://www.goldbeyond.top/2015/12/02/Swift学习日志-一/"></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:""};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+		<!-- 多说公共JS代码 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="q" value="site:www.goldbeyond.top">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">標籤雲</h3>
+  <div class="entry">
+    <a href="/tags/APNS/" style="font-size: 10px;">APNS</a> <a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Wireshark/" style="font-size: 10px;">Wireshark</a> <a href="/tags/转码/" style="font-size: 10px;">转码</a> <a href="/tags/链接/" style="font-size: 10px;">链接</a>
+  </div>
+</div>
+
+
+  <iframe width="100%" height="140" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1923610190&verifier=6af5ad6a&colors=fafafa,fafafa,666666,0082cb,ecfbfd&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://opiece.me" title="Chillax's Blog" target="_blank">Chillax</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 河南理工大学，计算机专业，iOS开发工程师，喜欢上网，运功 <br/>
+			You can download this theme on my github.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/GDbeyond" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/huangjunhui" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/huangjunhui" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:488076672@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/huangjunhui/concise" target="_blank" title="Concise">Concise</a> © 2015 
+		
+		<a href="http://www.goldbeyond.top/about" target="_blank" title="明明">明明</a>
+		
+		</p>
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+
