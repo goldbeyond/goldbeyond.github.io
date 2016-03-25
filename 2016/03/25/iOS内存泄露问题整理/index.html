@@ -15,7 +15,7 @@
 	})();
 	</script>
   
-  <title>解决wireshark找不到本地网卡问题 | 金超的博客</title>
+  <title>iOS内存泄露问题整理 | 金超的博客</title>
   <meta name="author" content="金超">
   
   <meta name="description" content="河南理工大学，计算机科学与技术专业。擅长运动，热爱编程......">
@@ -23,7 +23,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="解决wireshark找不到本地网卡问题"/>
+  <meta property="og:title" content="iOS内存泄露问题整理"/>
   <meta property="og:site_name" content="金超的博客"/>
 
   
@@ -81,34 +81,30 @@
   <div class="post-content">
     <header class="article-info clearfix">
   <h1 itemprop="name">
-	解决wireshark找不到本地网卡问题
+	iOS内存泄露问题整理
   </h1>
   <p class="article-author">By
     
       <a href="http://www.goldbeyond.top" title="金超">金超</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-11-05T01:25:53.000Z" itemprop="datePublished">2015-11-05</time>
-    更新日期:<time datetime="2015-12-01T05:14:20.000Z" itemprop="dateModified">2015-12-01</time>
+    <time datetime="2016-03-25T12:12:33.000Z" itemprop="datePublished">2016-03-25</time>
+    更新日期:<time datetime="2016-03-25T13:13:52.000Z" itemprop="dateModified">2016-03-25</time>
     
   </p>
 </header>
     <div class="entry">
 		
-			<div id="toc" class="toc-article">
-				<strong class="toc-title">文章目录</strong>
-				<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#两步操作解决wireshark找不到本地网卡问题"><span class="toc-number">1.</span> <span class="toc-text">两步操作解决wireshark找不到本地网卡问题</span></a></li></ol>
-			</div>
-		
-        <h2 id="两步操作解决wireshark找不到本地网卡问题">两步操作解决wireshark找不到本地网卡问题</h2><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chgrp admin /dev/bpf<span class="keyword">*</span></span><br><span class="line">sudo chmod g+rw /dev/bpf<span class="keyword">*</span></span><br></pre></td></tr></table></figure>
-
+        <h4 id="在项目将要完工的时候，脑子一热竟然做了一下内存泄露的测试，惊奇的发现，我靠！内存泄露的这么严重，于是乎跟着我的工程师导师开始一起找问题的所在，下面就是一些我们在项目中整理的几个比较严重的内存泄露的原因。">在项目将要完工的时候，脑子一热竟然做了一下内存泄露的测试，惊奇的发现，我靠！内存泄露的这么严重，于是乎跟着我的工程师导师开始一起找问题的所在，下面就是一些我们在项目中整理的几个比较严重的内存泄露的原因。</h4><h4 id="说明：在_ARC_环境下我们不需要去管理对象的引用计数问题，因为大部分情况下系统会自动帮我们释放，切记不是所有情况下！之余其他的ARC的知识自行补充！">说明：在 ARC 环境下我们不需要去管理对象的引用计数问题，因为大部分情况下系统会自动帮我们释放，切记不是所有情况下！之余其他的ARC的知识自行补充！</h4><h4 id="1-在控制器里面有NSTimer，在退出控制器时没有被销毁">1.在控制器里面有NSTimer，在退出控制器时没有被销毁</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">当控制器中我们使用了<span class="built_in">NSTimer</span>时，由于我们会使用[<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">1.0</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(updateTime:) userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>];“这个方法，好吧，除非你只是创建着玩的！” 用完这个方法，我们可以发现target引用了一次<span class="keyword">self</span>,那么我们的控制器的引用计数就会加 <span class="number">1</span> ，只要我们不销毁<span class="built_in">NSTimer</span>，那么控制器的引用计数就甭想清零，所以控制器无法调用delloc方法！</span><br><span class="line"></span><br><span class="line">解决方法：</span><br><span class="line">[timer invalidate];<span class="comment">//销毁tiemr对象</span></span><br><span class="line">timer = <span class="literal">nil</span>;<span class="comment">//保险起见，置空</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-当控制器作为代理时，代理对象的属性不是weak!!!">2.当控制器作为代理时，代理对象的属性不是weak!!!</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">当我们用 <span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="keyword">id</span>&lt;省略&gt; delegate; 这种形式来定义一个代理对象时，因为当控制器在遵守协议并使用的时候会对delegate进行强引用，而我们将协议类型设置为<span class="keyword">strong</span>，使得delegate再一次对控制器进行强引用，这就造成了强引用环，解都解不开啊！切记切记！   </span><br><span class="line"></span><br><span class="line">解决方法：</span><br><span class="line">定义代理对象时要使用<span class="keyword">weak</span>类型 <span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">id</span>&lt;省略&gt; delegate;   </span><br><span class="line"></span><br><span class="line">注：在使用第三方库的时候尤其要注意这一点，因为一些质量不高的第三方库很可能就对这一点没有进行若引用！！！强烈建议使用适量高的第三方库。否则：坑死不偿命啊！</span><br></pre></td></tr></table></figure>
+<h4 id="3-对象与_block_发生强引用环问题">3.对象与 block 发生强引用环问题</h4><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">说明：凡是在<span class="keyword">block中使用的对象都会被 </span><span class="keyword">block </span>进行强引用</span><br><span class="line"></span><br><span class="line">如果某对象 A 强引用(retain)了 <span class="keyword">block </span>,而 <span class="keyword">block </span>又强引用了 A 对象，这样就会造成强引用换,常见的一般是控制器与 <span class="keyword">block </span>的强引用关系</span><br><span class="line"></span><br><span class="line">解决方案：生成一个对象对自身的若引用</span><br><span class="line"> __weak A *weakSelf = a<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">注：不一定所有的 <span class="keyword">block </span>都要使用 weakSelf，所以清楚自己的 <span class="keyword">block </span>的引用关系是很关键的！</span><br></pre></td></tr></table></figure>
     </div>
     <footer>
         
         
   
   <div class="tags">
-    <a href="//tags/Wireshark/">Wireshark</a>
+    <a href="//tags/iOS/">iOS</a>
   </div>
 
 		<div class="bdsharebuttonbox">
@@ -156,10 +152,8 @@ with(document)0[
 
  <nav id="pagination" >
     
-    <a href="/2015/11/06/iOS远程推送/" class="alignleft prev" title="iOS远程推送">iOS远程推送</a>
     
-    
-    <a href="/2015/10/27/txt文件转码问题/" class="alignright next" title="txt文件转码问题">txt文件转码问题</a>
+    <a href="/2016/03/14/Swift学习/" class="alignright next" title=""></a>
     
     <div class="clearfix"></div>
 </nav>
