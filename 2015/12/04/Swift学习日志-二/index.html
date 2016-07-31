@@ -1,100 +1,231 @@
-
-
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=44218032" charset="UTF-8"></script>
-  <script>
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "//hm.baidu.com/hm.js?7192fa361f5cabb11d8a22de41c1ba8f";
-	  var s = document.getElementsByTagName("script")[0]; 
-	  s.parentNode.insertBefore(hm, s);
-	})();
-	</script>
   
   <title>Swift学习日志(二) | 金超的博客</title>
-  <meta name="author" content="金超">
-  
-  <meta name="description" content="河南理工大学，计算机科学与技术专业。擅长运动，热爱编程......">
-  
-  
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <meta property="og:title" content="Swift学习日志(二)"/>
-  <meta property="og:site_name" content="金超的博客"/>
-
+  <meta name="description" content="只有不断的学习，才是升值自己的最好方式。
+条件语句(Conditional statements)if-else条件语句简单用法示例：1234567var name: Stringvar num = 1if num == 1&amp;#123;    name = &quot;goldbeyond&quot;&amp;#125;else&amp;#123;    name = &quot;yaoming&quot;&amp;#125;
+与 OC 的区别是条件两边不需要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift学习日志(二)">
+<meta property="og:url" content="http://www.goldbeyond.top/2015/12/04/Swift学习日志-二/index.html">
+<meta property="og:site_name" content="金超的博客">
+<meta property="og:description" content="只有不断的学习，才是升值自己的最好方式。
+条件语句(Conditional statements)if-else条件语句简单用法示例：1234567var name: Stringvar num = 1if num == 1&amp;#123;    name = &quot;goldbeyond&quot;&amp;#125;else&amp;#123;    name = &quot;yaoming&quot;&amp;#125;
+与 OC 的区别是条件两边不需要">
+<meta property="og:updated_time" content="2015-12-09T03:31:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift学习日志(二)">
+<meta name="twitter:description" content="只有不断的学习，才是升值自己的最好方式。
+条件语句(Conditional statements)if-else条件语句简单用法示例：1234567var name: Stringvar num = 1if num == 1&amp;#123;    name = &quot;goldbeyond&quot;&amp;#125;else&amp;#123;    name = &quot;yaoming&quot;&amp;#125;
+与 OC 的区别是条件两边不需要">
   
-    <meta property="og:image" content="undefined"/>
+    <link rel="alternative" href="/atom.xml" title="金超的博客" type="application/atom+xml">
   
-
-  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
-  <link rel="alternate" href="/atom.xml" title="金超的博客" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b8e8ee87e4708173f00d9048c309301";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
 </head>
-
-
 <body>
-  <header><div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/imgs/logo.png" alt="金超的博客" title="金超的博客"/></a>
-			</div>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
 			
-			<div id="textlogo">
-				<h1 class="site-name">金超的博客</h1>
-				<h2 class="blog-motto">吾日三省吾身</h2>
-			</div>
-			<nav class="animated">
-				<ul>
-					
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-						<li><a href="/about">About</a></li>
-					
-					<li> <a href="/atom.xml">RSS</a> </li>
-				</ul>
-			</nav>			
-</div>
-</header>
-  <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header class="article-info clearfix">
-  <h1 itemprop="name">
-	Swift学习日志(二)
-  </h1>
-  <p class="article-author">By
-    
-      <a href="http://www.goldbeyond.top" title="金超">金超</a>
-    </p>
-  <p class="article-time">
-    <time datetime="2015-12-03T16:53:41.000Z" itemprop="datePublished">2015-12-04</time>
-    更新日期:<time datetime="2015-12-09T03:31:25.000Z" itemprop="dateModified">2015-12-09</time>
-    
-  </p>
-</header>
-    <div class="entry">
+			<img src="/assets/blogImg/litten.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">金超</a></h1>
+		</hgroup>
+
 		
+		<p class="header-subtitle">吾日三省吾身</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+							<li><a href="/instagram">相册</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/litten" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/litten225" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/APNS/" style="font-size: 10px;">APNS</a> <a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/Swift/" style="font-size: 20px;">Swift</a> <a href="/tags/Wireshark/" style="font-size: 10px;">Wireshark</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/转码/" style="font-size: 10px;">转码</a> <a href="/tags/链接/" style="font-size: 10px;">链接</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">河南理工大学，计算机科学与技术专业，iOS攻城狮，热爱编程。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">金超</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/assets/blogImg/litten.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">金超</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">吾日三省吾身</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+					<li><a href="/instagram">相册</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/litten" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/litten225" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Swift学习日志-二" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/04/Swift学习日志-二/" class="article-date">
+  	<time datetime="2015-12-03T16:53:41.000Z" itemprop="datePublished">2015-12-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Swift学习日志(二)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
         <p>只有不断的学习，才是升值自己的最好方式。</p>
 <h2 id="条件语句(Conditional_statements)">条件语句(Conditional statements)</h2><h3 id="if-else条件语句">if-else条件语句</h3><p>简单用法示例：<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name: <span class="built_in">String</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">num</span> = <span class="number">1</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">num</span> == <span class="number">1</span>&#123;</span><br><span class="line">    name = <span class="string">"goldbeyond"</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    name = <span class="string">"yaoming"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>与 OC 的区别是条件两边不需要加圆括号！</p>
@@ -108,187 +239,134 @@
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dict = [<span class="string">"name"</span>:<span class="string">"liming"</span>,<span class="string">"age"</span>:<span class="number">15</span>,<span class="string">"sex"</span>:<span class="string">"男"</span>]</span><br><span class="line"><span class="keyword">for</span> (info,<span class="keyword">value</span>) <span class="keyword">in</span> dict&#123;</span><br><span class="line">    print(<span class="string">"my \(info) is \(value)"</span>)</span><br><span class="line">&#125;</span><br><span class="line">此时，key是我们自定义的info,<span class="keyword">value</span>即是<span class="keyword">value</span></span><br><span class="line">注意：字典的遍历顺序可能与我们插入时的顺序是不一样的，因为字典的内部是无序的</span><br></pre></td></tr></table></figure>
 <h3 id="标准C样式的for循环语句">标准C样式的for循环语句</h3><p>for循环的一般使用格式：</p>
 <figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="keyword">initialization</span>; condition; increment <span class="comment">&#123;    statements&#125;</span></span><br><span class="line">示例：</span><br><span class="line"><span class="keyword">for</span> <span class="keyword">var</span> <span class="keyword">index</span> = <span class="number">0</span>;<span class="keyword">index</span> &lt; <span class="number">5</span>; ++<span class="keyword">index</span><span class="comment">&#123;</span><br><span class="line">    print("the number is \(index)")</span><br><span class="line">&#125;</span></span><br><span class="line">注意：这里<span class="keyword">index</span>的递增，不能用 <span class="keyword">index</span>++ 的方式，编辑器会提示错误，它会把++ 当做一种未知的分隔符，然后提示错误信息</span><br></pre></td></tr></table></figure>
+      
     </div>
-    <footer>
-        
-        
+    
+  </div>
   
-  <div class="tags">
-    <a href="//tags/Swift/">Swift</a>
-  </div>
-
-		<div class="bdsharebuttonbox">
-	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
-	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
-	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
-	<a href="#" class="bds_more" data-cmd="more"></a>
-	<a href="#" class="bds_count" data-cmd="count"></a>
-</div>
-<script>
-window._bd_share_config=
-{
-	"common":{
-		"bdSnsKey":{},
-		"bdText":"",
-		"bdMini":"2",
-		"bdMiniList":false,
-		"bdPic":"",
-		"bdStyle":"0",
-		"bdSize":"24"
-	},
-	"share":{},
-	"image":{
-		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
-		"viewText":"分享到：",
-		"viewSize":"24"
-	},
-	"selectShare":{
-		"bdContainerClass":null,
-		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
-	}
-};
-with(document)0[
-	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
-];
-</script>    
-        <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
- <nav id="pagination" >
     
-    <a href="/2016/03/14/Swift学习/" class="alignleft prev" title=""></a>
-    
-    
-    <a href="/2015/12/02/Swift学习日志-一/" class="alignright next" title="Swift学习日志(一)">Swift学习日志(一)</a>
-    
-    <div class="clearfix"></div>
+<nav id="article-nav">
+  
+    <a href="/2016/03/14/Swift学习/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/02/Swift学习日志-一/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Swift学习日志(一)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
 </nav>
 
-
-</div></div>
-    <aside id="sidebar" class="alignright">
-  <div class="search">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="搜尋">
-    <input type="hidden" name="q" value="site:www.goldbeyond.top">
-  </form>
-</div>
-
   
-
-  
-<div class="widget tagcloud">
-  <h3 class="title">標籤雲</h3>
-  <div class="entry">
-    <a href="/tags/APNS/" style="font-size: 10px;">APNS</a> <a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/Swift/" style="font-size: 20px;">Swift</a> <a href="/tags/Wireshark/" style="font-size: 10px;">Wireshark</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/转码/" style="font-size: 10px;">转码</a> <a href="/tags/链接/" style="font-size: 10px;">链接</a>
-  </div>
-</div>
+</article>
 
 
-  <iframe width="100%" height="140" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1923610190&verifier=6af5ad6a&colors=fafafa,fafafa,666666,0082cb,ecfbfd&dpc=1"></iframe>
-
-  <div class="widget tag">
-<h3 class="title">友情链接</h3>
-<ul class="entry">
-<li><a href="http://opiece.me" title="Chillax's Blog" target="_blank">Chillax</a></li>
-</ul>
-</div>
-</aside>
-    <div class="clearfix"></div>
-  </div>
-  <footer id="footer"><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-	
-	
-	<section class="info">
-		<p> 河南理工大学，计算机专业，iOS开发工程师，喜欢上网，运动 <br/>
-			You can download this theme on my github.</p>
-	</section>
-	 
-	<div class="social-font clearfix">
-		
-		<a href="http://weibo.com/GDbeyond" target="_blank" title="weibo"></a>
-		
-		
-		
-		<a href="https://github.com/huangjunhui" target="_blank" title="github"></a>
-		
-		
-		<a href="https://www.facebook.com/huangjunhui" target="_blank" title="facebook"></a>
-		
-		
-		
-		<a href="mailto:488076672@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/huangjunhui/concise" target="_blank" title="Concise">Concise</a> © 2016 
-		
-		<a href="http://www.goldbeyond.top/about" target="_blank" title="金超">金超</a>
-		
-		</p>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
 </div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Swift学习日志-二" data-title="Swift学习日志(二)" data-url="http://www.goldbeyond.top/2015/12/04/Swift学习日志-二/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"litten-hexo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 金超
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
 </footer>
-  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/counter.js"></script>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
 
 
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
 </script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
 
-<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
-<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
-</div>
-<script src="/js/totop.js"></script>
-<!-- mathjax config similar to math.stackexchange -->
+
+
+
+
 
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
+MathJax.Hub.Config({
     tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
+    }
+});
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
 </script>
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
+
+  </div>
 </body>
 </html>
-
-
